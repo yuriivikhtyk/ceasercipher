@@ -24,16 +24,23 @@ def greating():
 def encode(message, step):
     new_message = []
     for char in message.lower():
-        index = alphabet.index(char)
-        new_index = index + int(step)
-        if new_index > 24:
-            new_index = new_index - 25
-        elif new_index < 0:
-            new_index = new_index + 25
+        if char in alphabet:
+            index = alphabet.index(char)
+            new_index = index + int(step)
+            if new_index > 24:
+                new_index = new_index - 25
+                new_letter = alphabet[new_index]
+                new_message.append(new_letter)
+            elif new_index < 0:
+                new_index = new_index + 25
+                new_letter = alphabet[new_index]
+                new_message.append(new_letter)
+            else:
+                new_letter = alphabet[new_index]
+                new_message.append(new_letter)
         else:
-            pass
-        new_letter = alphabet[new_index]
-        new_message.append(new_letter)
+            new_message.append(char)
+        
     print("".join(new_message))
 
 
@@ -41,16 +48,23 @@ def encode(message, step):
 def decode(message, step):
     new_message = []
     for char in message.lower():
-        index = alphabet.index(char)
-        new_index = index - int(step)
-        if new_index > 24:
-            new_index = new_index - 25
-        elif new_index < 0:
-            new_index = new_index + 25
+        if char in alphabet:
+            index = alphabet.index(char)
+            new_index = index - int(step)
+            if new_index > 24:
+                new_index = new_index - 25
+                new_letter = alphabet[new_index]
+                new_message.append(new_letter)
+            elif new_index < 0:
+                new_index = new_index + 25
+                new_letter = alphabet[new_index]
+                new_message.append(new_letter)
+            else:
+                new_letter = alphabet[new_index]
+                new_message.append(new_letter)
         else:
-            pass
-        new_letter = alphabet[new_index]
-        new_message.append(new_letter)
+            new_message.append(char)
+        
     print("".join(new_message))
 
 greating()
